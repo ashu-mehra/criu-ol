@@ -1,0 +1,19 @@
+----------------------------------------------------------------
+Wed Feb 19 23:25:40 EST 2020:
+Booting Derby version The Apache Software Foundation - Apache Derby - 10.10.1.1 - (1458268): instance a816c00e-0170-60d8-1afe-00008dc90200 
+on database directory /home/ashutosh/apps/daytrader7/wlp/usr/shared/resources/data/tradedb with class loader com.ibm.ws.classloading.internal.AppClassLoader@1cedbf2b 
+Loaded from file:/home/ashutosh/apps/daytrader7/wlp/usr/shared/resources/Daytrader7SampleDerbyLibs/derby-10.10.1.1.jar
+java.vendor=AdoptOpenJDK
+java.runtime.version=1.8.0_242-b08
+user.dir=/home/ashutosh/apps/daytrader7/wlp/usr/servers/defaultServer
+os.name=Linux
+os.arch=amd64
+os.version=3.10.0-1062.9.1.el7.x86_64
+derby.system.home=null
+Database Class Loader started - derby.database.classpath=''
+----------------------------------------------------------------
+Wed Feb 19 23:28:16 EST 2020:
+Shutting down instance a816c00e-0170-60d8-1afe-00008dc90200 on database directory /home/ashutosh/apps/daytrader7/wlp/usr/shared/resources/data/tradedb with class loader com.ibm.ws.classloading.internal.AppClassLoader@1cedbf2b 
+----------------------------------------------------------------
+Wed Feb 19 23:28:16 EST 2020: Shutting down Derby engine
+----------------------------------------------------------------

@@ -1,0 +1,23 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<server description="OpenLiberty Microprofile Server">
+    <featureManager>
+        <!--feature>microProfile-1.0</feature-->
+        <feature>cdi-2.0</feature>
+        <feature>jaxrs-2.1</feature>
+        <!--feature>localConnector-1.0</feature-->
+        <!--feature>servlet-4.0</feature-->
+    </featureManager>
+    <!--executor name="LargeThreadPool" id="default" coreThreads="20" maxThreads="20"/-->
+    <httpEndpoint id="defaultHttpEndpoint" host="*" httpPort="9080" httpsPort="9443"/>
+    <cdi12 enableImplicitBeanArchives="false"/>
+    <webApplication contextRoot="pingperf" location="pingperf.war" deferServletLoad="false" />
+        <!--traceSpecification="com.ibm.ws.injectionengine.AbstractInjectionEngine=all=disabled:com.ibm.ws.injectionengine.InjectionProcessorManager=all=disabled:com.ibm.wsspi.injectionengine.InjectionBinding=all=disabled:OSGi.Debug=all:org.eclipse.osgi.internal.loader.ModuleClassLoader=all=enabled"-->
+    <!--logging
+        traceSpecification="com.ibm.ws.jaxrs20.cdi.component.JaxRsFactoryImplicitBeanCDICustomizer=all=enabled"
+                traceFileName="trace.log"
+                maxFileSize="2000"
+                maxFiles="20"
+                traceFormat="BASIC"
+        /-->
+    <!--applicationManager autoExpand="true"/-->
+</server>

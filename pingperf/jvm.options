@@ -1,0 +1,19 @@
+# Set the maximum heap size to 1024m.
+-Xmx128m
+-Xms128m
+#-Xgc:breadthFirstScanOrdering
+#-Xgcthreads4
+#-Xshareclasses:none
+#-XX:ParallelGCThreads=4
+#-XX:+ClassRelationshipVerifier
+#-Danno.beta=true
+#-verbose:gc
+#-Xverbosegclog
+#-verbose
+#-Dorg.jboss.weld.xml.disableValidating=true
+#-agentlib:jprof=scs,start,scs_rate=1000,logpath=/opt/pingperf/pi
+#-agentlib:jprof=scs,delay_start,logpath=/opt/pingperf/pi
+#-agentlib:jprof=tprof,logpath=/opt/pingperf/pi
+#-Xjit:unleashStaticFieldFolding
+#-Xverify:none
+#-XX:-StackTraceInThrowable
