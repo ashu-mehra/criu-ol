@@ -10,7 +10,10 @@ Using CRIU to test OpenLiberty based applications
 
 ## Configure and run the applications:
 In the following steps it is assumed that this repository is cloned at `/opt/criu-ol`.
-Please the location according to your setup.
+
+Please change the location according to your setup.
+
+Make sure following steps are run as `root` user.
 
 ### pingperf
    - create a directory where the app would be placed:
