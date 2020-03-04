@@ -1,16 +1,24 @@
 #!/bin/bash
 
 check_server_started() {
-        while true;
-        do
+	waitPeriod=30
+	waited=0
+	while [ ${waited} -lt ${waitPeriod} ];
+	do
 		grep "${LOG_MESSAGE}" "${LOG_LOCATION}" &> /dev/null
                 local app_started=$?
                 if [ ${app_started} -eq 0 ]; then
                         break
                 else
                         sleep 1s
+			waited=$(( waited + 1 ))
                 fi
         done
+	if [ ${waited} -eq ${waitPeriod} ];
+	then
+		echo "Looks like something went wrong in starting the server!"
+		exit 1
+	fi
 }
 
 pre_test_cleanup() {
@@ -25,6 +33,7 @@ pre_test_cleanup_criu() {
 	rm -f starttime.out
 	rm -f endtime.out
 }
+
 test_server_su() {
 	isColdRun=$1
 	echo "Starting ${SERVER_NAME} using original image for startup measurement"
@@ -119,7 +128,7 @@ create_checkpoint() {
 	pre_test_cleanup
 	mkdir -p ${SNAPSHOT_DIR}
 	./start_server.sh &
-	echo "Waiting..."
+	echo "Waiting for server to be started ..."
 	check_server_started
 	if [ $? -eq 0 ]; then
 		numJava=`ps -ef | grep "java" | grep -v grep | wc -l`
@@ -211,11 +220,15 @@ print_summary() {
 	echo
 }
 
-export JAVA_HOME=/home/ashutosh/builds/openj9/jdk8u232-b09
-export PATH="$JAVA_HOME/bin:$JAVA_HOME/jre/bin:$PATH"
-#export PATH="/home/ashutosh/criu/criu:/home/ashutosh/criu/crit:$JAVA_HOME/bin:$JAVA_HOME/jre/bin:$PATH"
+if [ -z ${JAVA_HOME} ]; then
+	echo "JAVA_HOME is not set"
+	exit 1
+fi
 
-declare -a headers=("server_fr_criu") # ("server_su" "server_fr" "server_fr_criu")
+echo "Using JAVA_HOME: ${JAVA_HOME}"
+export PATH="$JAVA_HOME/bin:$JAVA_HOME/jre/bin:$PATH"
+
+declare -a headers=("server_su" "server_fr" "server_fr_criu")
 
 declare -A values
 declare -A averages

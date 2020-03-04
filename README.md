@@ -5,6 +5,8 @@ Using CRIU to test OpenLiberty based applications
 * Install CRIU:
    - On ubuntu `sudo apt install criu`
    - On rhel `sudo yum install criu`
+* Download [Java 8](https://github.com/AdoptOpenJDK/openjdk8-binaries/releases/download/jdk8u242-b08_openj9-0.18.1/OpenJDK8U-jdk_x64_linux_openj9_8u242b08_openj9-0.18.1.tar.gz)
+  Extract it and set `JAVA_HOME` env variable.
 * Download [OpenLiberty](https://public.dhe.ibm.com/ibmdl/export/pub/software/openliberty/runtime/release/2019-11-20_0300/openliberty-19.0.0.12.zip)
 * Clone this repository
 
@@ -33,7 +35,9 @@ Make sure following steps are run as `root` user.
      ```
    - Go to top directory of the cloned repo:
      `# cd /opt/criu-ol`
-   - Adjust the variables in `pingperf_test.sh` according to the app location and run the script as:
+   - If you have installed the app at different location than `/opt/app/pingperf` then adjust the variable `SERVER_INSTALL_DIR` in `pingperf_test.sh` accordingly.
+
+     Now run the script as:
    
      `# ./pingperf_test.sh <batches> <iterations>`
      
@@ -64,7 +68,9 @@ Make sure following steps are run as `root` user.
      ```
    - Go to top directory of the cloned repo:
      `# cd /opt/criu-ol`
-   - Adjust the variables in `acmear_test.sh` according to the app location and run the script as:
+   - If you have installed the app at different location than `/opt/app/acmeair` then adjust the variable `SERVER_INSTALL_DIR` in `acmeair_test.sh` accordingly.
+
+     Now run the script as:
 
      `# ./acmeair_test.sh <batches> <iterations>`
 
@@ -84,12 +90,14 @@ Make sure following steps are run as `root` user.
      `# ./wlp/bin/server create defaultServer`
    - copy app files from the cloned repo to /opt/criu-test/acmeair/
      ```
-     # cp /opt/criu-ol/daytrader7/shared ./wlp/usr/
-     # cp /opt/criu-ol/daytrader7/servers/defaultServer ./wlp/usr/servers
+     # cp -r /opt/criu-ol/daytrader7/shared ./wlp/usr/
+     # cp -r /opt/criu-ol/daytrader7/servers/defaultServer ./wlp/usr/servers
      ```
    - Go to top directory of the cloned repo:
      `# cd /opt/criu-ol`
-   - Adjust the variables in `daytrader7_test.sh` according to the app location and run the script as:
+   - If you have installed the app at different location than `/opt/app/daytrader7` then adjust the variable `SERVER_INSTALL_DIR` in `daytrader7_test.sh` accordingly.
+
+     Now run the script as:
    
      `# ./daytrader7_test.sh <batches> <iterations>`
      

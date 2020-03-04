@@ -1,6 +1,6 @@
 #!/bin/bash
 
-export SERVER_INSTALL_DIR="/home/ashutosh/apps/acmeair"
+export SERVER_INSTALL_DIR="/opt/app/acmeair"
 
 export SERVER_NAME=defaultServer
 

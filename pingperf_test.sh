@@ -1,6 +1,6 @@
 #!/bin/bash
 
-export SERVER_INSTALL_DIR="/home/ashutosh/apps/pingperf"
+export SERVER_INSTALL_DIR="/opt/app/pingperf"
 
 export SERVER_NAME=defaultServer
 

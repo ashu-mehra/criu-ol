@@ -1,6 +1,6 @@
 #!/bin/bash
 
-export SERVER_INSTALL_DIR="/home/ashutosh/apps/daytrader7"
+export SERVER_INSTALL_DIR="/opt/app/daytrader7"
 
 export SERVER_NAME=defaultServer
 
