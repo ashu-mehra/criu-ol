@@ -24,17 +24,23 @@ Make sure following steps are run as `root` user.
      # cd /opt/app/pingperf
      ```
    - extract the downloaded openliberty zip here:
+   
      `# unzip -q <path to openliberty zip>`
+     
    - create server
+   
      `# ./wlp/bin/server create defaultServer`
-   - copy app files from the cloned repo to /opt/criu-test/pingperf/
+     
+   - copy app files from the cloned repo to `/opt/criu-ol/pingperf/`
      ```
      # cp /opt/criu-ol/pingperf/pingperf.war ./wlp/usr/servers/defaultServer/apps
      # cp /opt/criu-ol/pingperf/jvm.options ./wlp/usr/servers/defaultServer
      # cp /opt/criu-ol/pingperf/server.xml ./wlp/usr/servers/defaultServer
      ```
    - Go to top directory of the cloned repo:
+   
      `# cd /opt/criu-ol`
+     
    - If you have installed the app at different location than `/opt/app/pingperf` then adjust the variable `SERVER_INSTALL_DIR` in `pingperf_test.sh` accordingly.
 
      Now run the script as:
@@ -52,10 +58,14 @@ Make sure following steps are run as `root` user.
      # cd /opt/app/acmeair
      ```
    - extract the downloaded openliberty zip here:
+   
      `# unzip -q <path to openliberty zip>`
+     
    - create server
+   
      `# ./wlp/bin/server create defaultServer`
-   - copy app files from the cloned repo to /opt/criu-test/acmeair/
+     
+   - copy app files from the cloned repo to `/opt/criu-ol/acmeair/`
      ```
      # cp /opt/criu-ol/acmeair/acmeair-webapp-2.0.0-SNAPSHOT.war ./wlp/usr/servers/defaultServer/apps
      # cp /opt/criu-ol/acmeair/mongo.properties ./wlp/usr/servers/defaultServer
@@ -63,11 +73,13 @@ Make sure following steps are run as `root` user.
      ```
    - create mongdb docker image using the script in the cloned repo
      ```
-     # /opt/criu-test/acmeair
+     # cd /opt/criu-ol/acmeair
      # ./build_mongo.sh
      ```
    - Go to top directory of the cloned repo:
+   
      `# cd /opt/criu-ol`
+     
    - If you have installed the app at different location than `/opt/app/acmeair` then adjust the variable `SERVER_INSTALL_DIR` in `acmeair_test.sh` accordingly.
 
      Now run the script as:
@@ -85,16 +97,22 @@ Make sure following steps are run as `root` user.
      # cd /opt/app/daytrader7
      ```
    - extract the downloaded openliberty zip here:
+   
      `# unzip -q <path to openliberty zip>`
+     
    - create server
+   
      `# ./wlp/bin/server create defaultServer`
-   - copy app files from the cloned repo to /opt/criu-test/acmeair/
+     
+   - copy app files from the cloned repo to `/opt/criu-ol/daytrader7/`
      ```
      # cp -r /opt/criu-ol/daytrader7/shared ./wlp/usr/
      # cp -r /opt/criu-ol/daytrader7/servers/defaultServer ./wlp/usr/servers
      ```
    - Go to top directory of the cloned repo:
+   
      `# cd /opt/criu-ol`
+     
    - If you have installed the app at different location than `/opt/app/daytrader7` then adjust the variable `SERVER_INSTALL_DIR` in `daytrader7_test.sh` accordingly.
 
      Now run the script as:
